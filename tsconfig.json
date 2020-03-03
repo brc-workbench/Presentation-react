@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "allowJs": true,
+      "skipLibCheck": true,
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "strict": true,
+      "forceConsistentCasingInFileNames": true,
+      "module": "esnext",
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "noEmit": false,  //"noEmit": true, -- breaks build
+      "jsx": "react",
+      "sourceMap": true,
+      "removeComments": true,
+      "preserveConstEnums": true,
+      "noImplicitAny": true,
+      "outDir": "./dist/"
+    },
+    "include": [
+      "./src/**/*"
+    ],
+    "exclude": [
+        "./test/**/*"
+    ]
+  }
+  
