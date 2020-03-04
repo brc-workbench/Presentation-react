@@ -15,7 +15,7 @@ module.exports = {
   entry: setPath("src/index.tsx"),
   output: {
     path: setPath("dist"),
-    publicPath: "public/assets/",
+    publicPath: "/",
     filename: "bundle.js"
   },
   devServer: {
