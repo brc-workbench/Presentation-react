@@ -1,10 +1,10 @@
 import React from 'react';
-import { Table, TableBody, TableRow, TableCell } from '@material-ui/core';
+import { Table, TableBody, TableRow, TableCell, TableHead } from '@material-ui/core';
 import axios from 'axios';
 
 //const WEATHER_FORECAST_URL = 'https://bclausingwb-api.azurewebsites.net/weatherforecast';
 const WEATHER_FORECAST_APIM_URL = 'https://bclausingwb-apim.azure-api.net/weatherforecasts/weatherforecast?subscription-key=9d7fdd56b3d14450b2e0d577a166244a';
-/* nterface WeatherRowItem {
+/* interface WeatherRowItem {
     id: Number,
     date: Date,
     temp: Number,
@@ -41,6 +41,9 @@ class WeatherForecastServiceComponent extends React.Component {
          const { rowOfWeather } = this.state;
          return (
              <Table>
+                 <TableHead>
+                    <TableCell colSpan={4}>Weather Forecasts</TableCell>
+                 </TableHead>
                  <TableBody>
                  {rowOfWeather.map(row => (
                      <TableRow key={row.id}>
@@ -50,6 +53,9 @@ class WeatherForecastServiceComponent extends React.Component {
                          <TableCell>{row.summary}</TableCell>
                      </TableRow>
                  ))}
+                 <TableRow>
+                    <TableCell colSpan={4}>Record Count: {rowOfWeather.length}</TableCell>
+                </TableRow>
                  </TableBody>
              </Table>
          );
