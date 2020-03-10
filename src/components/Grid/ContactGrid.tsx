@@ -8,7 +8,9 @@ const ContactGridComponent: React.FC<{}> = () => {
     return (
         <Table>
             <TableHead>
-                <TableCell colSpan={4}>General Contacts</TableCell>
+                <TableRow>
+                    <TableCell colSpan={4}>General Contacts</TableCell>
+                </TableRow>
             </TableHead>
             <TableBody>
                 {/* {service.status === 'loading' && (
