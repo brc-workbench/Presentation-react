@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 //import PropTypes from 'prop-types';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
+import Grid from '@material-ui/core';
+import WeatherForecastService from '../../services/WeatherForecastsService';
 
 interface PageComponentProps extends RouteComponentProps { 
     title: string, 
@@ -15,6 +17,7 @@ class Page extends Component<PageComponentProps> {
                     <h1>Bootstrap starter template</h1>
                     <p className="lead">Use this document as a way to quickly start any new project.</p>
                 </div>
+                <WeatherForecastService />
             </main>
         );
     }
