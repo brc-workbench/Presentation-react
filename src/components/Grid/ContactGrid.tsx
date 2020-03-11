@@ -13,13 +13,13 @@ const ContactGridComponent: React.FC<{}> = () => {
                 </TableRow>
             </TableHead>
             <TableBody>
-                {/* {service.status === 'loading' && (
+                {service.status === 'loading' && (
                     <TableRow>
                         <TableCell>
                             <span>Loading...</span>
                         </TableCell>
                     </TableRow>
-                )} */}
+                )}
                 {service.status === 'loaded' && 
                     service.payload.map(row => (
                     <TableRow key={row.id}>

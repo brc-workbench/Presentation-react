@@ -41,10 +41,11 @@ class WeatherForecastServiceComponent extends React.Component {
          const { rowOfWeather } = this.state;
          return (
              <Table>
+                 
                  <TableHead>
-                     <TableRow>
-                         <TableCell colSpan={4}>Weather Forecasts</TableCell>
-                        </TableRow>                    
+                    <TableRow>
+                        <TableCell colSpan={4}>Weather Forecasts</TableCell>
+                    </TableRow>
                  </TableHead>
                  <TableBody>
                  {rowOfWeather.map(row => (
