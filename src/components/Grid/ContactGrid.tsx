@@ -8,16 +8,18 @@ const ContactGridComponent: React.FC<{}> = () => {
     return (
         <Table>
             <TableHead>
-                <TableCell colSpan={4}>General Contacts</TableCell>
+                <TableRow>
+                    <TableCell colSpan={4}>General Contacts</TableCell>
+                </TableRow>
             </TableHead>
             <TableBody>
-                {/* {service.status === 'loading' && (
+                {service.status === 'loading' && (
                     <TableRow>
                         <TableCell>
                             <span>Loading...</span>
                         </TableCell>
                     </TableRow>
-                )} */}
+                )}
                 {service.status === 'loaded' && 
                     service.payload.map(row => (
                     <TableRow key={row.id}>

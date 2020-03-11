@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 //import PropTypes from 'prop-types';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 import Grid from '@material-ui/core';
-import WeatherForecastService from '../../services/WeatherForecastsService';
+//import WeatherForecastService from '../../services/WeatherForecastsService';
 import ContactGridComponent from '../Grid/ContactGrid';
+import WeatherForecastGridComponent from '../Grid/WeatherForecastGrid';
 import { Table, TableBody, TableRow, TableCell } from '@material-ui/core';
 
 interface PageComponentProps extends RouteComponentProps { 
@@ -19,11 +20,11 @@ class Page extends Component<PageComponentProps> {
                     <h1>Bootstrap starter template</h1>
                     <p className="lead">Use this document as a way to quickly start any new project.</p>
                 </div>
-                <Table>
+                <table>
                     <tbody>
                         <tr>
                             <td>
-                                <WeatherForecastService />
+                                <WeatherForecastGridComponent />
                             </td>
                             <td className="gridSeperator">                              
                             </td>
@@ -32,7 +33,7 @@ class Page extends Component<PageComponentProps> {
                             </td>
                         </tr>
                     </tbody>
-                </Table>                
+                </table>                
             </main>
         );
     }
