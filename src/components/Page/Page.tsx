@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 //import PropTypes from 'prop-types';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
 //import WeatherForecastService from '../../services/WeatherForecastsService';
-import ContactGridComponent from '../Grid/ContactGrid';
+//import ContactGridComponent from '../Grid/ContactGrid';
+import DevExDataGrid from '../Grid/DevExDataGrid';
 import WeatherForecastGridComponent from '../Grid/WeatherForecastGrid';
 import { Table, TableBody, TableRow, TableCell } from '@material-ui/core';
 
@@ -28,7 +29,7 @@ class Page extends Component<PageComponentProps> {
                             <TableCell className="gridSeperator">                              
                             </TableCell>
                             <TableCell>
-                                <ContactGridComponent />
+                                <DevExDataGrid />
                             </TableCell>
                         </TableRow>
                     </TableBody>
