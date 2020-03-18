@@ -22,63 +22,64 @@ const webpackConfiguration = {
                     chunks: 'all'
                 },
                 styles: {
-                  name: "styles",
-                  test: /\.css$/,
-                  chunks: "all",
-                  enforce: true
+                    name: "styles",
+                    test: /\.css$/,
+                    chunks: "all",
+                    enforce: true
                 }
             }
         },
         minimizer: [
-          new OptimizeCSSAssetsPlugin({
-              cssProcessor: require('cssnano'),
-              cssProcessorOptions: {
-                  safe: true,
-                  parser: safeParser
-              },
-              cssProcessorPluginOptions: {
-                  preset: [
-                      'default',
-                      {
-                          reduceInitial: false
-                      }
-                  ]
-              },
-              canPrint: true
-          })
-      ]
+            new OptimizeCSSAssetsPlugin({
+                cssProcessor: require('cssnano'),
+                cssProcessorOptions: {
+                    safe: true,
+                    parser: safeParser
+                },
+                cssProcessorPluginOptions: {
+                    preset: [
+                        'default',
+                        {
+                            reduceInitial: false
+                        }
+                    ]
+                },
+                canPrint: true
+            })
+        ]
     },
     module: {
         rules: [
             { test: /\.js$/, use: ["source-map-loader"], enforce: "pre" },
-            { test: /\.(sa|sc|c)ss$/, 
+            {
+                test: /\.(sa|sc|c)ss$/,
                 exclude: /node_modules/,
                 use: [
-                "style-loader",
-                {
-                    loader: MiniCssExtractPlugin.loader,
-                    options: {
-                    publicPath: "/"
-                    }
-                },
-                'css-loader',
-                {
-                    loader: 'postcss-loader',
-                    options: {
-                        plugins: loader => [
-                            require('autoprefixer')({
-                                grid: true
-                            })
-                        ]
-                    }
-                },
-                "sass-loader"          
+                    "style-loader",
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: "/"
+                        }
+                    },
+                    'css-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: loader => [
+                                require('autoprefixer')({
+                                    grid: true
+                                })
+                            ]
+                        }
+                    },
+                    "sass-loader"
                 ]
             }
         ]
     },
-    plugins: [        
-        new MiniCssExtractPlugin({filename: "app.css"})
+    plugins: [
+        new MiniCssExtractPlugin({ filename: "app.css" })
     ]
 };
 

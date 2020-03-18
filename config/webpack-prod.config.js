@@ -19,10 +19,10 @@ const webpackConfiguration = {
                     chunks: 'all'
                 },
                 styles: {
-                  name: "styles",
-                  test: /\.css$/,
-                  chunks: "all",
-                  enforce: true
+                    name: "styles",
+                    test: /\.css$/,
+                    chunks: "all",
+                    enforce: true
                 }
             }
         },
@@ -67,7 +67,7 @@ const webpackConfiguration = {
     module: {
         rules: [
             {
-                test: /\.(sa|sc|c)ss$/, 
+                test: /\.(sa|sc|c)ss$/,
                 use: [
                     'style-loader',
                     {
@@ -90,7 +90,7 @@ const webpackConfiguration = {
     },
 
     plugins: [
-        new MiniCssExtractPlugin({filename: "app.css"}),
+        new MiniCssExtractPlugin({ filename: "app.css" }),
         new BundleAnalyzerPlugin({
             analyzerMode: 'static',
             generateStatsFile: true,
