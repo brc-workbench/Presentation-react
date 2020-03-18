@@ -20,7 +20,12 @@ const webpackConfiguration = {
     extensions: ['.ts', '.tsx', '.js', '.json', '.scss', '.css', '.jpeg', '.jpg', '.gif', '.png'],
     alias: {
       app: setPath('src'),
-      assets: setPath('assets')
+      assets: setPath('assets'),
+      // From DevExtreme documentation
+      globalize$: path.resolve( __dirname, "node_modules/globalize/dist/globalize.js" ),
+      globalize: path.resolve(__dirname, "node_modules/globalize/dist/globalize"),
+      cldr$: path.resolve(__dirname, "node_modules/cldrjs/dist/cldr.js"),
+      cldr: path.resolve(__dirname, "node_modules/cldrjs/dist/cldr")
     }
   },
   module: {
