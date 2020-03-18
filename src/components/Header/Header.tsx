@@ -1,6 +1,6 @@
 import React, { Component, useState } from 'react';
 //import PropTypes from 'prop-types';
-//import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 interface HeaderComponentProps { 
     title: string,
@@ -60,6 +60,7 @@ const Header: React.FC<HeaderComponentProps> = ({title, initialState}) => {
                                     Dropdown
                                 </a>
                                 <div className="dropdown-menu" aria-labelledby="dropdown01">
+                                    <Link to="/devExGrid">Dev Extreme Grid</Link>
                                     <a className="dropdown-item" href="#">
                                         Action
                                     </a>

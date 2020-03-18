@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 //import PropTypes from 'prop-types';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import Grid from '@material-ui/core';
 //import WeatherForecastService from '../../services/WeatherForecastsService';
 import ContactGridComponent from '../Grid/ContactGrid';
 import WeatherForecastGridComponent from '../Grid/WeatherForecastGrid';
@@ -20,20 +19,20 @@ class Page extends Component<PageComponentProps> {
                     <h1>Bootstrap starter template</h1>
                     <p className="lead">Use this document as a way to quickly start any new project.</p>
                 </div>
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>
+                <Table>
+                    <TableBody>
+                        <TableRow>
+                            <TableCell>
                                 <WeatherForecastGridComponent />
-                            </td>
-                            <td className="gridSeperator">                              
-                            </td>
-                            <td>
+                            </TableCell>
+                            <TableCell className="gridSeperator">                              
+                            </TableCell>
+                            <TableCell>
                                 <ContactGridComponent />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>                
+                            </TableCell>
+                        </TableRow>
+                    </TableBody>
+                </Table>                
             </main>
         );
     }
