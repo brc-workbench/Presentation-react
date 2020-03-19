@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-import DevExDataGrid from '../Grid/DevExDataGrid';
+import DevExDataGrid from '../grid/DevExDataGrid';
 
 interface PageComponentProps extends RouteComponentProps {
     title: string,
