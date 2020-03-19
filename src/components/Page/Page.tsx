@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router-dom';
-//import WeatherForecastService from '../../services/WeatherForecastsService';
-import ContactGridComponent from '../Grid/ContactGrid';
 import DevExDataGrid from '../Grid/DevExDataGrid';
-import WeatherForecastGridComponent from '../Grid/WeatherForecastGrid';
-import { Table, TableBody, TableRow, TableCell } from '@material-ui/core';
 
 interface PageComponentProps extends RouteComponentProps {
     title: string,

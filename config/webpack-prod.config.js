@@ -2,7 +2,7 @@ const merge = require('webpack-merge');
 const baseConfig = require('./webpack-base.config.js');
 
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const safeParser = require('postcss-safe-parser');
@@ -27,11 +27,10 @@ const webpackConfiguration = {
             }
         },
         minimizer: [
-            new UglifyJsPlugin({
-                uglifyOptions: {
+            new TerserPlugin({
+                terserOptions: {
                     warnings: false,
                     parse: {},
-                    exclude: /\.built\.js$/,
                     compress: {},
                     mangle: true, // Note `mangle.properties` is `false` by default.
                     output: null,
@@ -80,10 +79,14 @@ const webpackConfiguration = {
                     {
                         loader: 'postcss-loader',
                         options: {
-                            plugins: loader => [require('autoprefixer')()]
+                            plugins: loader => [
+                                require('autoprefixer')({
+                                    grid: true
+                                })
+                            ]
                         }
                     },
-                    'fast-sass-loader'
+                    'sass-loader'
                 ]
             }
         ]
@@ -91,12 +94,12 @@ const webpackConfiguration = {
 
     plugins: [
         new MiniCssExtractPlugin({ filename: "app.css" }),
-        new BundleAnalyzerPlugin({
+        /* new BundleAnalyzerPlugin({
             analyzerMode: 'static',
             generateStatsFile: true,
             statsOptions: { source: false },
             openAnalyzer: false
-        })
+        }) */
     ]
 };
 
