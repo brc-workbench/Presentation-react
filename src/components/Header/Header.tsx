@@ -1,5 +1,4 @@
 import React, { Component, useState } from 'react';
-//import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 interface HeaderComponentProps { 
@@ -7,7 +6,7 @@ interface HeaderComponentProps {
     initialState: boolean
 };
 
-// useState Hook cannot be used within a class: define as FC instead
+// useState function Hook cannot be used within a class: define as FC instead
 const Header: React.FC<HeaderComponentProps> = ({title, initialState}) => {
     
         const [isNavOpen, setIsNavOpen] = useState(initialState);
@@ -39,9 +38,7 @@ const Header: React.FC<HeaderComponentProps> = ({title, initialState}) => {
                                 </a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">
-                                    Link
-                                </a>
+                                <Link className='nav-link' to="/originalGrids">Original Grids</Link>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link disabled" href="#">
@@ -59,18 +56,6 @@ const Header: React.FC<HeaderComponentProps> = ({title, initialState}) => {
                                 >
                                     Dropdown
                                 </a>
-                                <div className="dropdown-menu" aria-labelledby="dropdown01">
-                                    <Link to="/devExGrid">Dev Extreme Grid</Link>
-                                    <a className="dropdown-item" href="#">
-                                        Action
-                                    </a>
-                                    <a className="dropdown-item" href="#">
-                                        Another action
-                                    </a>
-                                    <a className="dropdown-item" href="#">
-                                        Something else here
-                                    </a>
-                                </div>
                             </li>
                         </ul>
                     </div>
@@ -79,10 +64,5 @@ const Header: React.FC<HeaderComponentProps> = ({title, initialState}) => {
         );
     
 };
-/* 
-Header.propTypes = {
-    title: PropTypes.string,
-    routes: PropTypes.array
-}; */
 
 export default Header;
