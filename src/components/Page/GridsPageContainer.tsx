@@ -1,9 +1,9 @@
 import React from 'react';
-import Page from './Page';
+import GridsPage from './GridsPage';
 
-type PageContainerProps = { location: { pathname: string } };
+type GridsPageContainerProps = { location: { pathname: string } };
 
-const PageContainer = (props: PageContainerProps) => {
+const GridsPageContainer = (props: GridsPageContainerProps) => {
     const getTitle = () => {
         const path = props.location.pathname;
         return path === '/' ? 'Templates' : `${path.charAt(1).toUpperCase()}${path.slice(2)}`;
@@ -14,7 +14,7 @@ const PageContainer = (props: PageContainerProps) => {
         return path === '/' ? 'templates' : getTitle().toLowerCase();
     };
 
-    return <Page title={getTitle()} category={getType()} />;
+    return <GridsPage title={getTitle()} category={getType()} />;
 };
 
-export default PageContainer;
+export default GridsPageContainer;
