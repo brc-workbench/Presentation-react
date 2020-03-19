@@ -8,7 +8,10 @@ const setPath = function (folderName) {
 };
 
 const webpackConfiguration = {
-  entry: setPath('src/index.tsx'),
+  entry: {
+    index: setPath('src/index.tsx'),
+    devextremeGrid: setPath('src/components/Grid/DevExDataGrid.tsx')
+  },
   output: {
     path: setPath('dist'),
     filename: 'assets/js/[name]-bundle.js',
@@ -21,11 +24,11 @@ const webpackConfiguration = {
     alias: {
       app: setPath('src'),
       assets: setPath('assets'),
-      // From DevExtreme documentation
+      /* // From DevExtreme documentation
       globalize$: path.resolve( __dirname, "node_modules/globalize/dist/globalize.js" ),
       globalize: path.resolve(__dirname, "node_modules/globalize/dist/globalize"),
       cldr$: path.resolve(__dirname, "node_modules/cldrjs/dist/cldr.js"),
-      cldr: path.resolve(__dirname, "node_modules/cldrjs/dist/cldr")
+      cldr: path.resolve(__dirname, "node_modules/cldrjs/dist/cldr") */
     }
   },
   module: {
@@ -46,15 +49,9 @@ const webpackConfiguration = {
             options: {
               svgo: {
                 plugins: [
-                  {
-                    removeTitle: true
-                  },
-                  {
-                    removeUselessStrokeAndFill: false
-                  },
-                  {
-                    removeUnknownsAndDefaults: false
-                  }
+                  { removeTitle: true },
+                  { removeUselessStrokeAndFill: false },
+                  { removeUnknownsAndDefaults: false }
                 ]
               }
             }
@@ -75,7 +72,7 @@ const webpackConfiguration = {
         ]
       },
       {
-        test: /\.(ttf|otf|eot|woff|woff2|svg)$/,
+        test: /\.(ttf|otf|eot|woff|woff2|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         exclude: [/images/, /node_modules/],
         use: {
           loader: 'file-loader',
