@@ -10,7 +10,7 @@ const setPath = function (folderName) {
 const webpackConfiguration = {
   entry: {
     index: setPath('src/index.tsx'),
-    devextremeGrid: setPath('src/components/Grid/DevExDataGrid.tsx')
+    devextremeGrid: setPath('src/components/grid/DevExDataGrid.tsx')
   },
   output: {
     path: setPath('dist'),
