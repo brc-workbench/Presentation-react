@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import HeaderContainer from './components/header/HeaderContainer';
 import PageContainer from './components/page/PageContainer';
 import GridsPageContainer from './components/page/GridsPageContainer';
-import 'assets/scss/main.scss';
+import '../assets/scss/main.scss';
 
 const App = () => {
     return (
