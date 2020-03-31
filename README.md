@@ -1,5 +1,5 @@
 # Introduction 
-ReactJS based SPA.
+This is the EventUK Security web front-end application.  It is a NodeJS based project utilizing ReactJS and TypeScript.
 
 # Getting Started
 TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:

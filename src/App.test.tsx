@@ -10,11 +10,19 @@ describe("App Route Testing", () => {
     //console.log(wrapper.debug());
   });
   
-  test('Defines main applicatin route', () => {
+  test('Verify main applicatin route', () => {
     expect(wrapper.find('[path="/"]').text()).toBeDefined();
   });
 
-  test('Defines sub page route', () => {
+  test('Verify /originalGrids page route', () => {
     expect(wrapper.find('[path="/originalGrids"]').text()).toBeDefined();
+  });
+
+  test('Verify /uploadSchedule page route', () => {
+    expect(wrapper.find('[path="/uploadSchedule"]').text()).toBeDefined();
+  });
+
+  test('Verify /gridDemo page route', () => {
+    expect(wrapper.find('[path="/gridDemo"]').text()).toBeDefined();
   });
 });
