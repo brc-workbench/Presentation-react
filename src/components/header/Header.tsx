@@ -41,6 +41,12 @@ const Header: React.FC<HeaderComponentProps> = ({title, initialState}) => {
                             <Link className='nav-link' to="/originalGrids">Original Grids</Link>
                         </li>
                         <li className="nav-item">
+                            <Link className='nav-link' to="/uploadSchedule">Upload Schedule</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className='nav-link' to="/gridDemo">Grid Demo</Link>
+                        </li>
+                        <li className="nav-item">
                             <a className="nav-link disabled" href="#">
                                 Disabled
                             </a>

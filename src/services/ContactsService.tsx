@@ -1,11 +1,8 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { BaseApiService } from './BaseApiService';
+import axios, { AxiosResponse } from 'axios';
+import { setURL } from './BaseApiService';
+import { customers } from './data.js';
 
-// date formatter
-//new Intl.DateTimeFormat("en-GB", { year: "numeric", month: "long", day: "2-digit"}).format(row.date);
-const GENERAL_CONTACT_APIM_URL = 'https://bclausingwb-apim.azure-api.net/weatherforecasts/generalcontact?subscription-key=9d7fdd56b3d14450b2e0d577a166244a';
-const WEATHER_FORECAST_APIM_URL = 'https://bclausingwb-apim.azure-api.net/weatherforecasts/weatherforecast?subscription-key=9d7fdd56b3d14450b2e0d577a166244a';
+const DevExDataGridColumns = ['CompanyName', 'City', 'State', 'Phone', 'Fax'];
 
 export interface ContactRowItem {
     id: number,
@@ -14,31 +11,22 @@ export interface ContactRowItem {
     city: string    
 }
 
-const contactsService = () => {
-    const [result, setResult] = useState<BaseApiService<ContactRowItem>>({
-        status: 'loading'
-    });
+/// REST service for the contact resource.
+class contactsService {
+    
+    /// Retrieve all contacts
+    getContacts():Promise<AxiosResponse<any>> {
+        return axios.get(setURL("generalcontact"));
+    }
 
-    useEffect(() => {
-        axios.get(GENERAL_CONTACT_APIM_URL)
-            .then(response => setResult({
-                // handle success
-                status: 'loaded', 
-                payload: response.data
-            }))
-            .catch(error => {
-                // handle error
-                setResult({
-                    status: 'error',
-                    error
-                });
-                console.log(error);
-            });
+    devExGridDataColumns() {
+        return DevExDataGridColumns;
+    }
 
-    }, []);
-
-    return result;
-};
+    getDevExGridSampleData() {
+        return customers;
+    }
+}
 
 export default contactsService;
 

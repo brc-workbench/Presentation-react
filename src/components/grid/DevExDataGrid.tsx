@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import DataGrid, { Export, Pager, Paging, FilterRow } from 'devextreme-react/data-grid';
-import { customers } from './data.js';
-
-const columns = ['CompanyName', 'City', 'State', 'Phone', 'Fax'];
+import ContactsService from '../../services/ContactsService';
 
 const DevExDataGrid: React.FC<{}> = () => {
+  const service = new ContactsService();
+
   return (
     <DataGrid
-      dataSource={customers}
-      defaultColumns={columns}
+      dataSource={service.getDevExGridSampleData()}
+      defaultColumns={service.devExGridDataColumns()}
       showBorders={true}>
       <Export enabled={true} fileName="Employees" allowExportSelectedData={false} />
       <Paging defaultPageSize={10} />
