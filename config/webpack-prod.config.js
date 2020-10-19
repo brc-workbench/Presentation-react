@@ -13,7 +13,7 @@ const webpackConfiguration = {
         minimize: true,
         splitChunks: {
             cacheGroups: {
-                vendor: {
+                defaultVendors: {
                     test: /[\\/]node_modules[\\/]/,
                     name: 'vendors',
                     chunks: 'all'
