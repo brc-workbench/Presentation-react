@@ -8,42 +8,35 @@ const setPath = function (folderName) {
 };
 
 const webpackConfiguration = {
+  mode: 'development',
   entry: {
-    index: setPath('src/index.tsx'),
-    devextremeGrid: setPath('src/components/grid/DevExDataGrid.tsx')
+    index: setPath('src/index.tsx')
+    //devextremeGrid: setPath('src/components/grid/DevExDataGrid.tsx')
   },
   output: {
     path: setPath('dist'),
     filename: 'assets/js/[name]-bundle.js',
-    publicPath: '/',
-    chunkFilename: 'assets/js/[name].chunk.js',
-    pathinfo: false
+    //publicPath: '/',
+    //chunkFilename: 'assets/js/[name].chunk.js',
+    //pathinfo: false
   },
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json', '.scss', '.css', '.jpeg', '.jpg', '.gif', '.png'],
-    alias: {
-      app: setPath('src'),
-      assets: setPath('assets'),
-      /* // From DevExtreme documentation
-      globalize$: path.resolve( __dirname, "node_modules/globalize/dist/globalize.js" ),
-      globalize: path.resolve(__dirname, "node_modules/globalize/dist/globalize"),
-      cldr$: path.resolve(__dirname, "node_modules/cldrjs/dist/cldr.js"),
-      cldr: path.resolve(__dirname, "node_modules/cldrjs/dist/cldr") */
-    }
-  },
+  
+    resolve: {
+      fallback: { "stream": false },
+      extensions: ['.ts', '.tsx', '.js', '.json', '.scss', '.css', '.jpeg', '.jpg', '.gif', '.png'],
+      alias: {
+        app: setPath('src'),
+        assets: setPath('assets'),
+      }
+    },
+    
   module: {
     rules: [
       { test: /\.tsx?$/, exclude: /node_modules/, loader: "ts-loader" },
       {
         test: /\.html$/,
         use: [
-          {
-            loader: 'html-loader',
-            options: {
-              attrs: ['img:src'],
-              minimize: false
-            }
-          },
+          'html-loader',
           {
             loader: 'markup-inline-loader',
             options: {
@@ -91,6 +84,7 @@ const webpackConfiguration = {
       filename: "index.html"
     })
   ]
+  
 };
 
 module.exports = webpackConfiguration;

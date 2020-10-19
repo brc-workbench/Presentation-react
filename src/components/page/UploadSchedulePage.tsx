@@ -19,7 +19,7 @@ class UploadSchedulePage extends Component<UploadSchedulePageComponentProps> {
                 </div>
                 <div className='row'>
                     <div className='col-md'>
-                        <button>Upload Schedule Here</button>>
+                        <button>Upload Schedule Here</button>
                     </div>
                 </div>
                 <div className='row'>
