@@ -13,12 +13,23 @@ on:
     branches:
       - master
 
-env:
-  AZURE_WEBAPP_NAME: bclausingwb-react    # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: './dist'     # set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: '12.x'                    # set this to the node version to use
+
+#env: <-- deprecated by GitHub
+#  AZURE_WEBAPP_NAME: bclausingwb-react    # set this to your application's name
+#  AZURE_WEBAPP_PACKAGE_PATH: './dist'     # set this to the path to your web app project, defaults to the repository root
+#  NODE_VERSION: '12.x'                    # set this to the node version to use
 
 jobs:
+  set-env-variables:
+    name: Setting variables
+    steps:
+        run: |
+          echo "AZURE_WEBAPP_NAME=bclausingwb-react" >> $GITHUB_ENV
+        run: |
+          echo "AZURE_WEBAPP_PACKAGE_PATH=./dist" >> $GITHUB_ENV
+        run: |
+          echo "NODE_VERSION=12.x" >> $GITHUB_ENV
+
   build-and-deploy:
     name: Build and Deploy
     runs-on: ubuntu-latest
